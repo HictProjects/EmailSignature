@@ -60,7 +60,7 @@ var ma = document.forms["signatureGenerator"]["ma"].checked;
 	var other = "";
 
 	var sep = ' <span style="color: #EF4129"><b>|</b></span> ';
-	var disclaimer = '<span style="font-size: 10pt; color:#565A5C;">DISCLAIMER<br/><br/>The information included in this message is personal and/or confidential and intended exclusively for the addressees as stated. This message and/or the accompanying documents may contain confidential information and should be handled accordingly. If you are not the intended reader of this message, we urgently request that you notify hict immediately and that you delete this e-mail and any copies of it from your system and destroy any printouts immediately. It is forbidden to distribute, reproduce, use or disclose the information in this e-mail to third parties without obtaining prior permission from hict. We expressly point out that there are risks associated with the use of e-mail. hict and the companies within the group shall not accept any liability whatsoever for damage resulting from the use of e-mail. Legally binding obligations can only arise for hict by means of a written instrument, signed by an authorized representative of hict.</span>';
+	var disclaimer = '<span style="font-size: 8pt; color:#565A5C;">DISCLAIMER<br/>The information included in this message is personal and/or confidential and intended exclusively for the addressees as stated. This message and/or the accompanying documents may contain confidential information and should be handled accordingly. If you are not the intended reader of this message, we urgently request that you notify hict immediately and that you delete this e-mail and any copies of it from your system and destroy any printouts immediately. It is forbidden to distribute, reproduce, use or disclose the information in this e-mail to third parties without obtaining prior permission from hict. We expressly point out that there are risks associated with the use of e-mail. hict and the companies within the group shall not accept any liability whatsoever for damage resulting from the use of e-mail. Legally binding obligations can only arise for hict by means of a written instrument, signed by an authorized representative of hict.</span>';
 		
 	
 	//alert(name + jobtitle + telephone + email);
@@ -95,11 +95,11 @@ var ma = document.forms["signatureGenerator"]["ma"].checked;
 	<!-- signatureFull += '</span>'; -->
 
 	<!-- NEW -->
-	signatureFull += '<b style="color: #00323B;">' + name + '</b><br/>';
+	signatureFull += '<b style="color: #00323B; font-size:10pt;">' + name + '</b><br/>';
 	
 	selTag = document.getElementById("jobtitle");
 	jobtitle = selTag.options[selTag.selectedIndex].text
-	signatureFull += '<i style="color: #00323B;">' + jobtitle + '</i><br/><br/>';
+	signatureFull += '<i style="color: #00323B; font-size: 10pt;">' + jobtitle + '</i><br/><br/>';
 
 	if(ma == 1){
 		<!-- var selVal = document.getElementById("assistant").value; -->
@@ -115,28 +115,31 @@ var ma = document.forms["signatureGenerator"]["ma"].checked;
 		signatureFull += '<b>Management Assistant:</b> </span><a href="mailto:natascha.van.campe@hict.be" title="Contact Natascha for more information">Natascha Van Campe</a><br/><br/>';
 	}
 	
-	signatureFull += '<table border="0" cellpadding="0" cellspacing="0" style="font-family: Century Gothic; line-height:1.15; font-size: 10pt; color: #00323B;">';
+	signatureFull += '<table border="0" cellpadding="0" cellspacing="0" style="font-family: Century Gothic; line-height:1.15; font-size: 9pt; color: #00323B;">';
 	signatureFull += '<tr>';
-	signatureFull += '<td rowspan="5" style="vertical-align: top; margin: 0px; padding-right: 10px;"><img src="hict.png" alt="hict logo" /></td>';
-	signatureFull += '<td colspan="6" style="padding: 0 0 5px 10px;"><strong><span style="color: #EF4129;">Hict</span> main office</strong>' + sep + 'Ottergemsesteenweg-Zuid 808 B/354' + sep + '9000 Ghent' + sep + 'Belgium' + sep + 'RPR/RPM 0866 039 556</td>';
+	signatureFull += '<td rowspan="6" style="vertical-align: top; margin: 0px; padding-right: 10px;"><img src="hict.png" alt="hict logo" /></td>';
+	signatureFull += '<td colspan="6" style="padding: 0 0 2px 10px;"><strong><span style="color: #EF4129;">Hict</span></strong>' + sep + 'Ottergemsesteenweg-Zuid 808 B/354' + sep + '9000 Ghent' + sep + 'Belgium' + sep + 'RPR/RPM 0866 039 556</td>';
 	signatureFull += '</tr>';
 	signatureFull += '<tr>';
-	signatureFull += '<td colspan="6" style="padding: 0 0 5px 10px;"><span style="color: #EF4129; font-weight: bold;">T</span> +32 9 277 77 84' + sep + '<span style="color: #EF4129; font-weight: bold;">M</span> ' + telephone + '</td>';
+	signatureFull += '<td colspan="6" style="padding: 0 0 2px 10px;"><span style="color: #EF4129; font-weight: bold;">T</span> +32 9 277 77 84' + sep + '<span style="color: #EF4129; font-weight: bold;">M</span> ' + telephone + '</td>';
 	signatureFull += '</tr>';
 	signatureFull += '<tr>';
-	signatureFull += '<td colspan="6" style="padding: 0 0 5px 10px;"><span style="color: #EF4129; font-weight: bold;">W</span> <a href="https://www.hict.com" title="Bezoek onze site! / Visit our site!">www.hict.com</a>' + sep + '<span style="color: #EF4129; font-weight: bold;">E</span> <a href="mailto:' + email + '">' + email + '</a></td>';
+	signatureFull += '<td colspan="6" style="padding: 0 0 2px 10px;"><span style="color: #EF4129; font-weight: bold;">W</span> <a href="https://www.hict.com" title="Bezoek onze site! / Visit our site!">www.hict.com</a>' + sep + '<span style="color: #EF4129; font-weight: bold;">E</span> <a href="mailto:' + email + '">' + email + '</a></td>';
 	signatureFull += '</tr>';
 	signatureFull += '<tr>';
-	signatureFull += '<td style="padding: 10px; width: 30px"><a href="https://www.linkedin.com/company/hict/" title="Connect with us on LinkedIn"><img src="linkedIn.png" /></a></td>';
-	signatureFull += '<td style="padding: 10px; width: 30px"><a href="https://twitter.com/hict_consulting" title="Follow us on Twitter"><img src="twitter.png" /></a></td>';
-	signatureFull += '<td style="padding: 10px; width: 30px"><a href="https://www.facebook.com/hictconsulting/" title="Visit our Facebook page"><img src="fb.png" /></a></td>';
-	signatureFull += '<td style="padding: 10px; width: 30px"><a href="https://mailchi.mp/hict.be/newsletter" title="Subscribe to our newsletter"><img src="newsletter.png" /></a></td>';
-	signatureFull += '<td style="padding: 0px 0px 0px 10px;"><img src="kmo-portefeuille.png" /></td>';
+	signatureFull += '<td style="padding: 0px 5px 5px 10px;"><a href="https://www.linkedin.com/company/hict/" title="Connect with us on LinkedIn"><img src="linkedIn.png" /></a></td>';
+	signatureFull += '<td style="padding: 0px 5px 0px 5px;"><a href="https://twitter.com/hict_consulting" title="Follow us on Twitter"><img src="twitter.png" /></a></td>';
+	signatureFull += '<td style="padding: 0px 5px 0px 5px;"><a href="https://www.facebook.com/hictconsulting/" title="Visit our Facebook page"><img src="fb.png" /></a></td>';
+	signatureFull += '<td style="padding: 0px 5px 0px 5px;"><a href="https://mailchi.mp/hict.be/newsletter" title="Subscribe to our newsletter"><img src="newsletter.png" /></a></td>';
+	signatureFull += '<td style="padding: 0px 0px 0px 5px;"><img src="kmo-portefeuille.png" /></td>';
 	signatureFull += '<td style="width: 430px">&nbsp;</td>';
+	signatureFull += '</tr>';
+	signatureFull += '<tr>';
+	signatureFull += '<td colspan="6" style="padding: 5px 0px 0px 10px;"><a href="https://hict.com" title="Find out more about hict on our brand new website!"><img src="banner.png" alt="Visit our new website!" /></a></td>';
 	signatureFull += '</tr>';
 	signatureFull += '</table>';
 
-	signatureFull += '<br/><br/>' + disclaimer;
+	signatureFull += '<br/>' + disclaimer;
 	signatureFull += '</br></br>';
 
 
