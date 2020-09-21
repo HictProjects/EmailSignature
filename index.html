@@ -53,7 +53,15 @@ function generateSignature(){
 	telephone = document.forms["signatureGenerator"]["telephone"].value;	
 	email = document.forms["signatureGenerator"]["email"].value;	
 
-var ma = document.forms["signatureGenerator"]["ma"].checked;
+	var ma = document.forms["signatureGenerator"]["ma"].checked;
+	var dispBanner = document.forms["signatureGenerator"]["dispBanner"].checked;
+	var customUrl = document.forms["signatureGenerator"]["customUrl"].value;
+	
+	var bannerLink = "https://hict.com"
+	
+	if (customUrl.length > 0){
+		bannerLink = customUrl;
+	}
 	<!-- var maname=document.forms["signatureGenerator"]["maname"].value;	 -->
 	<!-- var maemail=document.forms["signatureGenerator"]["maemail"].value; -->
 
@@ -134,11 +142,17 @@ var ma = document.forms["signatureGenerator"]["ma"].checked;
 	signatureFull += '<td style="padding: 0px 0px 0px 5px;"><img src="kmo-portefeuille.png" /></td>';
 	signatureFull += '<td style="width: 430px">&nbsp;</td>';
 	signatureFull += '</tr>';
-	signatureFull += '<tr>';
-	signatureFull += '<td colspan="6" style="padding: 5px 0px 0px 10px;"><a href="https://hict.com" title="Find out more about hict on our brand new website!"><img src="banner.png" alt="Visit our new website!" /></a></td>';
-	signatureFull += '</tr>';
-	signatureFull += '</table>';
-
+	
+	if(dispBanner == 1){
+		signatureFull += '<tr>';
+		signatureFull += '<td colspan="6" style="padding: 5px 0px 0px 10px;"><a href="' + bannerLink + '" title="Find out more about hict on our brand new website!"><img src="banner.png" alt="Visit our new website!" width="500px" /></a></td>';
+		signatureFull += '</tr>';
+		signatureFull += '<tr>';
+		signatureFull += '<td colspan="6" style="padding: 5px 0px 0px 10px;">' + bannerLink + '</td>';
+		signatureFull += '</tr>';
+		signatureFull += '</table>';
+	}
+	
 	signatureFull += '<br/>' + disclaimer;
 	signatureFull += '</br></br>';
 
@@ -183,9 +197,50 @@ h1 {
 </xml><![endif]-->
 </head>
 <body style="font-family: Century Gothic;font-size:100%;line-height:1.15;">
+<h1 style="color: #Ef4129;">Email signature generator</h1>
 <table width="100%" border="0" cellpadding="10" cellspacing="0">
-  <tr>
-    <td valign="top" align="left"><h1>hict e-mail signature generator</h1>
+	<tr>
+		<td valign="top" align="left">
+			<h1><strong>How to <span style="border-bottom:solid black 2px; margin-bottom: 3px;">create</span> your signature in Outlook? </strong></h1>
+			<ol>
+			<li>Fill out your data and click the &quot;Generate&quot; button </li>
+			<li>Select the <a href="javascript:fnSelect('hictFullSignature');">full</a> or <a href="javascript:fnSelect('hictShortSignature');">short</a> signature and copy (CTRL C) to the clipboard</li>
+			<li>Open Outlook </li>
+			<li>Click File &gt; Options &gt; Mail &gt; Signatures ...</li>
+			<li>Create a new signature</li>
+			<li>Paste the data</li>
+			<li>Modify if needed</li>
+			<li>Click the save button</li>
+			<li>Modify your default signature setting if needed</li>
+			<li>Click OK to close the signature window</li>
+			</ol>
+			<h1><strong>Closing greetings</strong></h1>
+			<p>The default greetings have been left out of the template. The tiny effort of typing your closing greeting goes a long way.</p>
+		</td>
+		<td valign="top" align="left">
+			<h1><strong>How to <span style="border-bottom:solid black 2px; margin-bottom: 3px;">change</span> your signature in Outlook? </strong></h1>
+			<ol>
+			<li>Fill out your data and click the &quot;Generate&quot; button </li>
+			<li>Select the <a href="javascript:fnSelect('hictFullSignature');">full</a> or <a href="javascript:fnSelect('hictShortSignature');">short</a> signature and copy (CTRL C) to the clipboard</li>
+			<li>Open Outlook </li>
+			<li>Click File &gt; Options &gt; Mail &gt; Signatures ...</li>
+			<li>Select an existing signature</li>
+			<li>Select the content of the signature using your mouse. CTRL A does not work.</li>
+			<li>Delete the content</li>
+			<li>Paste what you copied</li>
+			<li>Modify if needed</li>
+			<li>Click the save button</li>
+			<li>Click OK to close the signature window</li>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<hr />
+		</td>
+	</tr>
+	<tr>
+    <td valign="top" align="left"><h1>Fill in the form accordingly.</h1>
       <form name="signatureGenerator" method="post" action="">
         <table cellspacing="0" cellpadding="3">
           <tr>
@@ -231,10 +286,20 @@ h1 {
             <td nowrap>&nbsp;</td>
           </tr>
           <tr>
-            <td nowrap>Display office manager:</td>
+            <td nowrap>Check this if you want to display the office manager:</td>
             <td nowrap><input type="checkbox" name="ma" id="ma"></td>
             <td nowrap>&nbsp;</td>
           </tr>
+		  <tr>
+			<td nowrap>Check this if you want to display the current banner:</td>
+			<td nowrap><input type="checkbox" name="dispBanner" id="dispBanner"></td>
+			<td nowrap>&nbsp;</td>
+		  </tr>
+		  <tr>
+			<td nowrap>Enter a custom link for the banner:</td>
+			<td nowrap><input type="url" name="customUrl" id="customUrl"></td>
+			<td nowrap>Format (example): https://google.com (Leave blank for default)</td>
+		  </tr>
 					<!-- <tr> -->
 						<!-- <td> -->
 							<!-- <select name="assistant" id="assistant"> -->
@@ -265,22 +330,6 @@ h1 {
           </tr>
         </table>
       </form></td>
-    <td valign="top" align="left"><h1><strong>How to create/change your signature in Outlook 2010? </strong></h1>
-      <ol>
-        <li>Fill out your data and click the &quot;Generate&quot; button </li>
-        <li>Select the <a href="javascript:fnSelect('hictFullSignature');">full</a> or <a href="javascript:fnSelect('hictShortSignature');">short</a> signature and copy to the clipboard</li>
-        <li>Open Outlook </li>
-        <li>Click File &gt; Options &gt; Mail &gt; Signatures ...</li>
-        <li>Create a new signature</li>
-        <li>Paste the data</li>
-        <li>Modify if needed</li>
-        <li>Click the save button</li>
-        <li>Modify your default signature setting if needed</li>
-        <li>Click OK to close the signature window</li>
-      </ol>
-	<h1><strong>Closing greetings</strong></h1>
-	<p>The default greetings have been left out of the template. The tiny effort of typing your closing greeting goes a long way.</p>
-</td>
   </tr>
 </table>
 <hr>
